@@ -13,8 +13,8 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  number: 1
+  script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
     - mahotas-features = mahotas.features_cli:main
 
@@ -24,9 +24,8 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - python
-    - setuptools
+    - pip
     - numpy
-
   run:
     - python
     - {{ pin_compatible('numpy') }}
