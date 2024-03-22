@@ -16,7 +16,7 @@ source:
     - patches/drop_std_random_shuffle.patch
 
 build:
-  number: 3
+  number: 4
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - mahotas-features = mahotas.features_cli:main
