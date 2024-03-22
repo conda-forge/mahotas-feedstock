@@ -37,7 +37,10 @@ requirements:
     - {{ pin_compatible('numpy') }}
 
 test:
+  files:
+    - run_testsuite.py
   requires:
+    - python
     - pytest
     - scipy
     - pillow
@@ -45,6 +48,7 @@ test:
     - mahotas
   commands:
     - mahotas-features --help
+    - python run_testsuite.py
 
 about:
   home: https://mahotas.readthedocs.io/
