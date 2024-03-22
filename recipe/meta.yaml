@@ -41,10 +41,8 @@ test:
     - pytest
     - scipy
     - pillow
-
   imports:
     - mahotas
-
   commands:
     - mahotas-features --help
 
