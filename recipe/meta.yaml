@@ -15,6 +15,9 @@ source:
 build:
   number: 2
   script:
+    # C++ code is not yet C++17 compatible. So use C++14 for now.
+    # xref: https://github.com/luispedro/mahotas/issues/146
+    - export CXXFLAGS="${CXXFLAGS} -std=c++14"  # [unix]
     - {{ PYTHON }} -m pip install . -vv
   entry_points:
     - mahotas-features = mahotas.features_cli:main
