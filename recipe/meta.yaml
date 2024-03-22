@@ -11,9 +11,12 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    # xref: https://github.com/luispedro/mahotas/commit/3e927b415ef0f33710fed2fedd2377c207956638
+    - patches/drop_std_random_shuffle.patch
 
 build:
-  number: 2
+  number: 3
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - mahotas-features = mahotas.features_cli:main
@@ -34,16 +37,18 @@ requirements:
     - {{ pin_compatible('numpy') }}
 
 test:
+  files:
+    - run_testsuite.py
   requires:
+    - python
     - pytest
     - scipy
     - pillow
-
   imports:
     - mahotas
-
   commands:
     - mahotas-features --help
+    - python run_testsuite.py
 
 about:
   home: https://mahotas.readthedocs.io/
