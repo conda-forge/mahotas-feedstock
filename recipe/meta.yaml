@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - mahotas-features = mahotas.features_cli:main
@@ -24,6 +24,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
     - python
@@ -31,7 +32,6 @@ requirements:
     - numpy
   run:
     - python
-    - {{ pin_compatible('numpy') }}
 
 test:
   files:
