@@ -1,6 +1,6 @@
 {% set name = "mahotas" %}
-{% set version = "1.4.15" %}
-{% set sha256 = "d79b1bb36c195543d5a1f0e171c8edf6a142184ac11177f90b5f0098ef86e07c" %}
+{% set version = "1.4.17" %}
+{% set sha256 = "c3b81bd7273715a30f094db8e8bf5a3e1cda72dcf8c14a41333512c0fa2cdcdf" %}
 
 
 package:
@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - mahotas-features = mahotas.features_cli:main
