@@ -11,9 +11,6 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    # char is unsigned on aarch64/ppc64le; backport of upstream 8dbfd97
-    - 0001-fix-signed-char-dispatch.patch  # [aarch64 or ppc64le]
 
 build:
   number: 0
