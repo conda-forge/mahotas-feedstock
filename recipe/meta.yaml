@@ -1,6 +1,6 @@
 {% set name = "mahotas" %}
-{% set version = "1.4.18" %}
-{% set sha256 = "e6bd2eea4143a24f381b30c64078503cd8ffa20ca493e39ffa29f9d024d9cf8b" %}
+{% set version = "1.4.19" %}
+{% set sha256 = "3d820f12497aba0bc962343b80b8d4620739e010f3ad0bbdd0390fccbdb1d9a0" %}
 
 
 package:
@@ -16,7 +16,7 @@ source:
     - 0001-fix-signed-char-dispatch.patch  # [aarch64 or ppc64le]
 
 build:
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - mahotas-features = mahotas.features_cli:main
